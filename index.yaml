@@ -11,4 +11,14 @@ entries:
     urls:
     - https://github.com/lwpk110/zookeeper-operator/releases/download/zookeeper-operator-0.0.0-dev/zookeeper-operator-0.0.0-dev.tgz
     version: 0.0.0-dev
-generated: "2024-10-14T18:18:36.98979953+08:00"
+  - apiVersion: v2
+    appVersion: 0.0.0-dev
+    created: "2024-10-14T18:31:57.445001949+08:00"
+    description: A Helm chart for Kubernetes
+    digest: c31e5747860098e4614c9155c602b95ee4d5363785e7635bf58d3762b4dc0532
+    name: zookeeper-operator
+    type: application
+    urls:
+    - https://github.com/lwpk110/zookeeper-operator/releases/download/zookeeper-operator-0.0.0-dev/zookeeper-operator-0.0.0-dev.tgz
+    version: 0.0.0-dev
+generated: "2024-10-14T18:31:57.445012168+08:00"
