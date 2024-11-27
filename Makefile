@@ -3,7 +3,7 @@
 VERSION ?= 0.0.0-dev
 ENVTEST_K8S_VERSION = 1.26.1
 
-REGISTRY ?= quay.io/zncdatadev
+REGISTRY ?= quay.io/lwpk110
 PROJECT_NAME = zookeeper-operator
 
 # IMAGE_TAG_BASE defines the docker.io namespace and part of the image name for remote images.

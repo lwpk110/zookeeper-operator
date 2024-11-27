@@ -116,10 +116,9 @@ jobs:
   #       KIND_KUBECONFIG: kind-kubeconfig-${{ matrix.k8s-version }}
   #     run: make chainsaw-test
 
-
   deploy-operator:
     name: Deploy operator
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository_owner == 'zncdatadev' }}
+    if: ${{ github.event_name == 'push' && (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/')) && github.repository_owner == 'lwpk110' }}
     runs-on: ubuntu-22.04
     needs:
       - golang-lint
@@ -141,6 +140,13 @@ jobs:
           registry: quay.io
           username: ${{ secrets.QUAY_USERNAME }}
           password: ${{ secrets.QUAY_PASSWORD }}
-      - name: Build and push operator
+      - name: Build and push Release operator
+        if: ${{ startsWith(github.ref, 'refs/tags/') }}
+        env:
+          VERSION: ${{ github.ref_name }}
+        run: |
+          make docker-buildx
+      - name: Build and push Dev operator
+        if: ${{ github.ref == 'refs/heads/main' }}
         run: |
           make docker-buildx
